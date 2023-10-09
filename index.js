@@ -11,7 +11,7 @@ app.use(express.static('uploads'))
 app.use(cors())
 //Routes
 app.use("/", ((req, res) => {
-    res.send("Server Is Hosted on the Server [E-Commerce]")
+    res.send("<h1>Server Is Hosted on the Server [E-Commerce]</h1>")
 }))
 app.use("/api", appRoute);
 app.use("/api/products", productRoute);
