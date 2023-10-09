@@ -10,6 +10,9 @@ app.use(express.json({ limit: "30mb", extended: true }))
 app.use(express.static('uploads'))
 app.use(cors())
 //Routes
+app.use("/", ((req, res) => {
+    res.send("Server Is Hosted on the Server [E-Commerce]")
+}))
 app.use("/api", appRoute);
 app.use("/api/products", productRoute);
 app.use("/api/sliders", sliderRoute)
