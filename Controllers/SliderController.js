@@ -31,6 +31,21 @@ const createSlider = async (req, res) => {
     }
 };
 
+const deleteSlider = async (req, res) => {
+    var { id } = req.params
+    try {
+        const deletedSlider = await Slider.deleteOne({ _id: id })
+        if (!deletedSlider) {
+            return res.status(404).json({ message: 'Slider not found' });
+        }
+        res.json({ message: 'Slider deleted successfully' });
+    } catch (error) {
+        console.log("error ", error);
+        res.status(404).json({ message: "File Can not be deleted!" })
+
+    }
+};
+
 module.exports = {
-    getAllSlider, createSlider
+    getAllSlider, createSlider, deleteSlider
 }
